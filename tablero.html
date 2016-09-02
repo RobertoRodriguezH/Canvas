@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Ejemplo de Canvas</title>
+    </head>
+    <body>
+        <canvas id="bloqueCanvas" width="720" height="720">
+            Su navegador no soporta el uso de Canvas.
+        </canvas>
+		<script language="JavaScript">
+			var contenedor = document.getElementById('bloqueCanvas');
+			var objeto2d = contenedor.getContext('2d');
+			
+			//objeto2d.fillStyle   = '#00f';//color de coloreado
+			//objeto2d.strokeStyle = '#f00';//color de contorno
+			//objeto2d.fillRect(0, 0, 50, 50);//colorear el cuadro
+			//objeto2d.strokeRect(51, 51, 100, 100);//Cuadro descoloreado ;)
+			var text="Tablero chidori";
+			objeto2d.font="30px algerian ";
+			objeto2d.fillText(text,40,40);
+			
+			var x=0;
+			var y=50;
+			var paso = true;
+			//objeto2d.fillRect(0,50,40,40);
+			//objeto2d.fillStyle="#3F8ED2";
+			//objeto2d.fillRect(40,50,40,40);
+			for (var j = 0; j < 8; j++) {
+				for (var i = 0; i < 8; i++) {
+					if (paso){objeto2d.fillStyle="#000000"; paso=false;}
+					else {objeto2d.fillStyle="#3F8ED2"; paso=true;  }
+					objeto2d.fillRect(x,y,40,40);
+					x=x+40
+				}
+				x=0;
+				y=y+40;
+				paso= !paso;
+			}
+			var text="Gamer 1    Gamer 2";
+			objeto2d.fillText(text,18,y+40);
+			var text="Insert Coin";
+			objeto2d.fillStyle = 'yellow';
+			objeto2d.fillText(text,80,y-40);
+		</script>
+    </body>
+</html>
